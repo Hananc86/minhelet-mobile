@@ -1,14 +1,20 @@
 import React from 'react';
 import { ListRenderItemInfo, StyleSheet } from 'react-native';
-import { Divider, List, ThemeProvider, TopNavigation } from '@ui-kitten/components';
+import { Divider, List, ThemeProvider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { ThemeCard } from './theme-card.component';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { Theme, ThemeContextValue, Theming } from '../../services/theme.service';
 import { appThemes } from '../../app/app-themes';
-
+import { MenuIcon } from '../../components/icons';
 const themes: string[] = Object.keys(appThemes).filter(theme => theme !== 'brand');
 
-export const ThemesScreen = (): React.ReactElement => {
+export const ThemesScreen = (props): React.ReactElement => {
+  const renderDrawerAction = (): React.ReactElement => (
+    <TopNavigationAction
+      icon={MenuIcon}
+      onPress={props.navigation.toggleDrawer}
+    />
+  );
 
   const themeContext: ThemeContextValue = React.useContext(Theming.Context);
 
@@ -31,6 +37,7 @@ export const ThemesScreen = (): React.ReactElement => {
       <TopNavigation
         title='Kitten Tricks4'
         alignment='center'
+        leftControl={renderDrawerAction()}
       />
       <Divider/>
       <List

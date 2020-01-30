@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, Input, TopNavigation } from '@ui-kitten/components';
+import { Divider, Input, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
 import { CloseIcon, SearchIcon } from '../../components/icons';
 import { ComponentData, data } from './data';
+import { MenuIcon } from '../../components/icons';
 
 export const ComponentsScreen = (props): React.ReactElement => {
 
@@ -21,6 +22,12 @@ export const ComponentsScreen = (props): React.ReactElement => {
   const onInputIconPress = (): void => {
     setQuery('');
   };
+  const renderDrawerAction = (): React.ReactElement => (
+    <TopNavigationAction
+      icon={MenuIcon}
+      onPress={props.navigation.toggleDrawer}
+    />
+  );
 
   return (
     <SafeAreaLayout
@@ -30,6 +37,7 @@ export const ComponentsScreen = (props): React.ReactElement => {
       <TopNavigation
         title='Kitten Tricks'
         alignment='center'
+        leftControl={renderDrawerAction()}
       />
       <Divider/>
       <Input

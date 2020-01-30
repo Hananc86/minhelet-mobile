@@ -29,6 +29,10 @@ export const HomeBottomNavigation = (props): React.ReactElement => {
           title='Themes'
           icon={ColorPaletteIcon}
         />
+        <BottomNavigationTab
+          title='Themes2'
+          icon={ColorPaletteIcon}
+        />
       </BrandBottomNavigation>
     </SafeAreaLayout>
   );

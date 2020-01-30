@@ -1,18 +1,16 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Home from './src/screens/Home';
-import SearchBar from './src/screens/SearchBar';
-import SearchScreen from './src/screens/SearchScreen';
+import React from 'react';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { mapping, light as theme } from '@eva-design/eva';
+import { AppNavigator } from './navigation.component';
 
+const App = () => (
+  <React.Fragment>
+    <IconRegistry icons={EvaIconsPack}/>
+    <ApplicationProvider mapping={mapping} theme={theme}>
+      <AppNavigator/>
+    </ApplicationProvider>
+  </React.Fragment>
+);
 
-const navigator = createStackNavigator({
-  SearchScreen,
-  SearchBar
-}, {
-  initialRouteName: 'SearchScreen',
-  defaultNavigationOptions: {
-    title: 'Minhelet League'
-  }
-});
-
-export default createAppContainer(navigator);
+export default App;

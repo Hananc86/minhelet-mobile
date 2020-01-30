@@ -44,12 +44,12 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
       <View style={styles.profileContainer}>
         <Avatar
           size='giant'
-          source={require('../../assets/images/image-app-icon.png')}
+          source={require('../../assets/images/minhelet-logo.png')}
         />
         <Text
           style={styles.profileName}
           category='h6'>
-          Minhelet1
+          Minhelet League
         </Text>
       </View>
     </Layout>

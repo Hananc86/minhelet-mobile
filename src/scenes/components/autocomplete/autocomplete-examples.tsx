@@ -7,7 +7,7 @@ type Option = AutocompleteShowcaseOption;
 
 export const CustomOptionsAutocompleteItem = ({ item }: ListRenderItemInfo<Option>) => (
   <React.Fragment>
-    <Avatar size='small' source={require('../../../assets/images/image-app-icon.png')}/>
+    <Avatar size='small' source={require('../../../assets/images/minhelet-logo.png')}/>
     <View style={{ marginHorizontal: 8 }}>
       <Text>{item.title}</Text>
       <Text appearance='hint' category='p2'>

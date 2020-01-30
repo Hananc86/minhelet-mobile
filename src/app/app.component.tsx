@@ -16,7 +16,7 @@ const assets: Assets = {
 export default (): React.ReactElement => (
   <ApplicationLoader
     assets={assets}
-    splash={require('../assets/images/image-splash.png')}>
+    splash={require('../assets/images/minhelet-logo.png')}>
     <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
     <AppProvider initialTheme='light'>
       <StatusBar/>

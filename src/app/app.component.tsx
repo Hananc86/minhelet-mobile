@@ -6,7 +6,8 @@ import { AppIconsPack } from './app-icons-pack';
 import { AppProvider } from './app-provider.component';
 import { StatusBar } from '../components/status-bar.component';
 import { AppNavigator } from '../navigation/app.navigator';
-
+import { I18nManager } from 'react-native';
+I18nManager.forceRTL(true);
 const assets: Assets = {
   fonts: {
     'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),

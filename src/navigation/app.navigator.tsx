@@ -8,6 +8,7 @@ import { HomeDrawer } from '../scenes/home/home-drawer.component';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Button } from '@ui-kitten/components';
+import Test from '../model/test/test';
 
 
 const test = ({navigation}) => (
@@ -24,7 +25,7 @@ const test = ({navigation}) => (
 export const SwitchNavigator = createAppContainer(
   createSwitchNavigator({
   signinFlow: createStackNavigator({
-    Signup,
+    Signup: Test,
     Singin
   }),
   mainFlow: HomeNavigator

@@ -17,7 +17,7 @@ export default ({ navigation }): React.ReactElement => {
   const styles = useStyleSheet(themedStyles);
 
   const onSignUpButtonPress = (): void => {
-    navigation && navigation.goBack();
+    navigation && navigation.navigate('mainFlow');
   };
 
   const onSignInButtonPress = (): void => {

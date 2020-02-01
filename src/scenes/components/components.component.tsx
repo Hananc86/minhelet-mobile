@@ -35,7 +35,7 @@ export const ComponentsScreen = (props): React.ReactElement => {
       insets='top'
       level='2'>
       <TopNavigation
-        title='Kitten Tricks'
+        title='Minhelet League'
         alignment='center'
         leftControl={renderDrawerAction()}
       />

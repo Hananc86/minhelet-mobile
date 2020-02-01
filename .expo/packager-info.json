@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 75513,
+  "packagerPort": 19003,
+  "packagerPid": 84295,
   "expoServerNgrokUrl": "https://qz-enw.anonymous.minhelet-mobile.exp.direct",
   "packagerNgrokUrl": "https://packager.qz-enw.anonymous.minhelet-mobile.exp.direct",
-  "ngrokPid": 75543
+  "ngrokPid": 84306
 }

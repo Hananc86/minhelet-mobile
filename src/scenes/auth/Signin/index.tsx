@@ -12,11 +12,11 @@ export default ({ navigation }): React.ReactElement => {
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
   const onSignInButtonPress = (): void => {
-    navigation && navigation.goBack();
+    // navigation && navigation.goBack();
   };
 
   const onSignUpButtonPress = (): void => {
-    navigation && navigation.navigate('SignUp3');
+    navigation && navigation.navigate('Signup');
   };
 
   const onForgotPasswordButtonPress = (): void => {

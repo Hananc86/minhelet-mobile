@@ -35,7 +35,7 @@ export const ThemesScreen = (props): React.ReactElement => {
       insets='top'
       level='2'>
       <TopNavigation
-        title='Kitten Tricks4'
+        title='Minhelet League'
         alignment='center'
         leftControl={renderDrawerAction()}
       />

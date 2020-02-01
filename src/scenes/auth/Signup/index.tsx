@@ -21,7 +21,7 @@ export default ({ navigation }): React.ReactElement => {
   };
 
   const onSignInButtonPress = (): void => {
-    navigation && navigation.navigate('SignIn3');
+    navigation && navigation.navigate('Singin');
   };
 
   const onPasswordIconPress = (): void => {

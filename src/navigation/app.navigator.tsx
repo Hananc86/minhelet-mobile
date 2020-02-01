@@ -25,10 +25,13 @@ const test = ({navigation}) => (
 export const SwitchNavigator = createAppContainer(
   createSwitchNavigator({
   signinFlow: createStackNavigator({
-    Signup: Test,
+    Signup,
     Singin
   }),
-  mainFlow: HomeNavigator
+  mainFlow: createStackNavigator({
+    Test,
+    HomeNavigator
+  })
 })
 )
 

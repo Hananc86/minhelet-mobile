@@ -1,23 +1,41 @@
 import React, { Component } from 'react'
 import gql from 'graphql-tag';
-import { View } from 'react-native'
-import { FlatList, Text, StyleSheet } from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  View,
+  FlatList,
+  Text
+} from 'react-native'
 import { graphql } from 'react-apollo';
 import { compose } from 'ramda';
-
+import Table from 'react-native-simple-table'
+import { Avatar, Button, Card, Layout } from '@ui-kitten/components';
+import { FlexStyleProps } from '@ui-kitten/components/ui/support/typings';
 
 export default class Test extends Component {
+
   render() {
+    const columns = [
+      {
+        title: 'User Name',
+        dataIndex: 'user_login',
+        width: 140
+      },
+      {
+        title: 'ID',
+        dataIndex: 'id',
+        width: 105
+      }
+    ];
     var { data }: any = this.props;
-    console.log(data && data.users || '', '*********************************************');
     return (
-    <View style={styles.container}>
-      <FlatList
-      data={data.users || []}
-      keyExtractor={(item, index) => index}
-      renderItem={({item}) => <Text>{item.user_login} {item.id}</Text>}
-      />
-    </View>
+      <Layout style={[styles.container]}>
+        <View>
+          <Text style={styles.title}>Users</Text>
+          <Table  columns={columns} dataSource={data.users} />
+        </View>
+      </Layout>
     )
   }
 }
@@ -35,12 +53,19 @@ module.exports = compose(
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 22
+    ...Platform.select({
+      ios: {
+        flex: 1,
+        justifyContent : 'center',
+        flexDirection: 'row',
+        paddingTop: 20
+      },
+      android: {}
+    }),
   },
-  item: {
-    padding: 10,
+  title: {
     fontSize: 18,
-    height: 44,
-  },
-})
+    padding: 10,
+    textAlign: 'center'
+  }
+});

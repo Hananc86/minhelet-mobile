@@ -32,7 +32,7 @@ export default class Test extends Component {
     return (
       <Layout style={[styles.container]}>
         <View>
-          <Button onPress={singup}>singup</Button>
+          {/* <Button onPress={() => singup({variables: {email: 'Hanan', password: '12345'}})}>singup</Button> */}
           <Text style={styles.title}>Users</Text>
           <Table  columns={columns} dataSource={data.users} />
         </View>
@@ -49,28 +49,37 @@ query users {
 }
 `
 export const singupMutation = gql`
-mutation singup ($email: String!, $password: String!) {
-  singup (email: $email, password: $password ) {
-    id
-    user_login
+  mutation singup(
+    $email: String!
+    $password: String!
+  ) {
+    singup(
+      email: $email
+      password: $password
+    ) {
+      id
+    }
   }
-}
 `
 
-const signupEnhancer = graphql<{}, {}, {}, {}>(singupMutation, {
-	props (props) {
-		return {
-			singup ({ email, password }) {
-				return props.mutate({
-					variables: {
-						password: '123456',
-						email: 'Hanancohen86@gmail.com'
-          },
-				});
-      }
-		};
-	}
-});
+// const signupEnhancer = graphql<{}, {}, {}, {}>(singupMutation, {
+// 	props (props) {
+// 		return {
+// 			singup ({ email, password }) {
+// 				return props.mutate({
+// 					variables: {
+// 						password: '123456',
+// 						email: 'Hanancohen86@gmail.com'
+//           },
+// 				});
+//       }
+// 		};
+// 	}
+// });
+
+const signupEnhancer = graphql(singupMutation, {
+  name: 'singup'
+})
 module.exports = compose(
   graphql(users),
   signupEnhancer

@@ -9,6 +9,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Button } from '@ui-kitten/components';
 import Test from '../model/test/test';
+import { Context as AuthContext, Provider as AuthProvider } from '../context/AuthContext';
 
 
 const test = ({navigation}) => (
@@ -37,6 +38,8 @@ export const SwitchNavigator = createAppContainer(
 
 export const AppNavigator = (): React.ReactElement => (
   <NavigationNativeContainer>
-    <SwitchNavigator/>
+    <AuthProvider>
+      <SwitchNavigator/>
+    </AuthProvider>
   </NavigationNativeContainer>
 );

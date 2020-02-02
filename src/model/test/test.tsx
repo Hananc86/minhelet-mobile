@@ -28,10 +28,11 @@ export default class Test extends Component {
         width: 105
       }
     ];
-    var { data }: any = this.props;
+    var { data, singup }: any = this.props;
     return (
       <Layout style={[styles.container]}>
         <View>
+          <Button onPress={singup}>singup</Button>
           <Text style={styles.title}>Users</Text>
           <Table  columns={columns} dataSource={data.users} />
         </View>
@@ -47,8 +48,32 @@ query users {
   }
 }
 `
+export const singupMutation = gql`
+mutation singup ($email: String!, $password: String!) {
+  singup (email: $email, password: $password ) {
+    id
+    user_login
+  }
+}
+`
+
+const signupEnhancer = graphql<{}, {}, {}, {}>(singupMutation, {
+	props (props) {
+		return {
+			singup ({ email, password }) {
+				return props.mutate({
+					variables: {
+						password: '123456',
+						email: 'Hanancohen86@gmail.com'
+          },
+				});
+      }
+		};
+	}
+});
 module.exports = compose(
-  graphql(users)
+  graphql(users),
+  signupEnhancer
 )(Test)
 
 const styles = StyleSheet.create({

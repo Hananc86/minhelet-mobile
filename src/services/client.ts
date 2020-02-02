@@ -3,22 +3,22 @@ import {
     HttpLink,
     InMemoryCache,
     ApolloLink,
-    Observable
+    Observable,
   } from 'apollo-boost';
   import { setContext } from 'apollo-link-context';
   import { onError } from 'apollo-link-error';
   import { config } from './api/config';
   
   const httpLink = new HttpLink({
-    uri: config.graphql
+    uri: config.graphql,
   })
   
   const authLink = setContext(async request => {
-    console.log(request)
+    console.log(request);
 
     return {
       headers: {
-        authorization: `Bearer 'd'`
+        authorization: `Bearer 'd'`,
       }
     }
   })
@@ -34,9 +34,9 @@ import {
     ({ graphQLErrors, networkError, operation, forward }) => {
       if (graphQLErrors) {
         for (const err of graphQLErrors) {
-          let { message, locations, path, extensions } = err
-          let { operationName } = operation
-          let finalMessage = `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path} Extensions: ${extensions}. OperationName: ${operationName}`
+          const { message, locations, path, extensions } = err;
+          const { operationName } = operation;
+          const finalMessage = `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path} Extensions: ${extensions}. OperationName: ${operationName}`
   
           console.log(finalMessage)
 
@@ -48,9 +48,7 @@ import {
           }
         }
       }
-  
-      if (networkError) console.log(`[Network error]: ${networkError}`)
-  
+      if (networkError) { console.log(`[Network error]: ${networkError}`); }
       console.log(operation)
     }
   )
@@ -64,5 +62,5 @@ import {
     cache: new InMemoryCache()
   })
   
-  export default client
+  export default client;
   

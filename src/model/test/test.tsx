@@ -28,11 +28,11 @@ export default class Test extends Component {
         width: 105
       }
     ];
-    var { data, singup }: any = this.props;
+    var { data, singup, navigation }: any = this.props;
     return (
       <Layout style={[styles.container]}>
         <View>
-          {/* <Button onPress={() => singup({variables: {email: 'Hanan', password: '12345'}})}>singup</Button> */}
+          <Button onPress={() => navigation.navigate('HomeNavigator')}>navigate</Button>
           <Text style={styles.title}>Users</Text>
           <Table  columns={columns} dataSource={data.users} />
         </View>

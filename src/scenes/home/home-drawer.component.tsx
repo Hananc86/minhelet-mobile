@@ -16,8 +16,14 @@ import {
 import { BookIcon, GithubIcon } from '../../components/icons';
 
 const DATA: MenuItemType[] = [
-  { title: 'View Github', icon: GithubIcon },
-  { title: 'Documentation', icon: BookIcon },
+  // { title: 'View Github', icon: GithubIcon },
+  // { title: 'Documentation', icon: BookIcon },
+  { title: 'מתחם הימורים' },
+  { title: 'לוח משחקים' },
+  { title: 'טבלת דירוג' },
+  { title: 'חוקי מנהלת' },
+  { title: 'שידורי ספורט' },
+  { title: 'התנתק' },
 ];
 
 export const HomeDrawer = ({ navigation }): DrawerElement => {
@@ -25,12 +31,17 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   const onItemSelect = (index: number): void => {
     switch (index) {
       case 0: {
-        WebBrowser.openBrowserAsync('https://github.com/akveo/kittenTricks');
+        // WebBrowser.openBrowserAsync('https://github.com/akveo/kittenTricks');
         navigation.toggleDrawer();
         return;
       }
       case 1: {
-        WebBrowser.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+        // WebBrowser.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+        navigation.toggleDrawer();
+        return;
+      }
+      case 4: {
+        WebBrowser.openBrowserAsync('https://m.youtube.com/watch?v=hPW4TnkrDEQ&feature=youtu.be');
         navigation.toggleDrawer();
         return;
       }
@@ -44,12 +55,12 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
       <View style={styles.profileContainer}>
         <Avatar
           size='giant'
-          source={require('../../assets/images/image-app-icon.png')}
+          source={require('../../assets/images/minhelet-logo.png')}
         />
         <Text
           style={styles.profileName}
           category='h6'>
-          Minhelet1
+          מנהלת הליגה
         </Text>
       </View>
     </Layout>

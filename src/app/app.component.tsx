@@ -6,7 +6,11 @@ import { AppIconsPack } from './app-icons-pack';
 import { AppProvider } from './app-provider.component';
 import { StatusBar } from '../components/status-bar.component';
 import { AppNavigator } from '../navigation/app.navigator';
-
+import { I18nManager } from 'react-native';
+import { ApolloClient } from 'apollo-client';
+import client from '../services/client';
+import { ApolloProvider } from '@apollo/react-hooks';
+I18nManager.forceRTL(true);
 const assets: Assets = {
   fonts: {
     'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
@@ -14,13 +18,15 @@ const assets: Assets = {
 };
 
 export default (): React.ReactElement => (
-  <ApplicationLoader
-    assets={assets}
-    splash={require('../assets/images/image-splash.png')}>
-    <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
-    <AppProvider initialTheme='light'>
-      <StatusBar/>
-      <AppNavigator/>
-    </AppProvider>
-  </ApplicationLoader>
+  <ApolloProvider client={client}>
+    <ApplicationLoader
+      assets={assets}
+      splash={require('../assets/images/minhelet-logo.png')}>
+      <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
+      <AppProvider initialTheme='light'>
+        <StatusBar/>
+        <AppNavigator/>
+      </AppProvider>
+    </ApplicationLoader>
+  </ApolloProvider>
 );

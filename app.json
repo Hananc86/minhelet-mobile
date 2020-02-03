@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Kitten Tricks",
+    "name": "Minhelet League",
     "slug": "kitten-tricks",
     "version": "2.4.0-beta.2",
     "sdkVersion": "36.0.0",
@@ -23,9 +23,9 @@
     ],
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
-    "icon": "./src/assets/images/image-app-icon.png",
+    "icon": "./src/assets/images/minhelet-logo.png",
     "splash": {
-      "image": "src/assets/images/image-splash.png",
+      "image": "src/assets/images/minhelet-logo.png",
       "resizeMode": "contain"
     },
     "assetBundlePatterns": [
